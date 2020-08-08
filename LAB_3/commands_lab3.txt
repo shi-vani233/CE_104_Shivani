@@ -1,0 +1,26 @@
+1. for creating strong named key file and strong named assembly for calc.cs.
+	-in developer command prompt,
+		-sn -k mykey.snk
+		-csc /t:library /keyfile:mykey.snk calc.cs (calc.dll will be created).
+
+
+2. deploying it to GAC.
+	-in deveploper command prompt,
+		-gacutil -i calc.dll
+	-for verifying it go to the C:\Windows\Microsoft.NET\assembly\GAC_MSIL\calc.
+
+
+3. for creating new version of calc.dll and deploying it to GAC.
+	-make calc_new.cs file which indicate new version.
+	-in developer command prompt,
+		-csc /t:library /out:calc.dll /keyfile:mykey.snk calc_new.cs 
+		-ildasm calc.dll (to check calc.dll's version is updated or not)
+		-gacutil -i calc.dll (new version will also be in above path).
+
+
+		
+
+
+
+
+		
