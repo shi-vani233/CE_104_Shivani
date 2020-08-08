@@ -1,0 +1,12 @@
+1. create addition.cs and with multiplication.cs files with same namespace.
+
+2. for making netmodule files of cs file,
+	-in developer command prompt,
+		-csc /t:module addition.cs
+		-csc /t:module multiplication.cs
+	-this will make addition.netmodule and multiplication.netmodule in same folder as cs files. 
+		
+3. To create single DLL file named Calc.dll for both cs files,
+	-in developer command prompt,
+		-csc /t:library /out:Calc.dll /addmodule:addition.netmodule /addmodule:multiplication.netmodule
+	-this will make Calc.dll in same folder,which is referring to both files of addition and multiplication.  
