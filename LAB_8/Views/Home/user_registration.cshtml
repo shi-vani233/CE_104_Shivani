@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewData["Title"] = "user_registration";
+}
+
+<h1>user_registration</h1>
+<form asp-controller="home" asp-action="user_registration" method="post">
+    <table>
+        <tr>
+            <td>
+                Name:
+            </td>
+            <td>
+                <input type="text" id="name" name="name" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Sem:
+            </td>
+            <td>
+                <input type="number" id="sem" name="sem" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Phone number:
+            </td>
+            <td>
+                <input type="text" id="text" name="text" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Email:
+            </td>
+            <td>
+                <input type="email" id="email" name="email" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address:
+            </td>
+            <td>
+                <input type="text" id="address" name="address" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Picture:
+            </td>
+            <td>
+                <input type="file" id="picture" name="picture" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="submit" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @ViewBag.tag
+            </td>
+        </tr>
+    </table>
+    </form>
