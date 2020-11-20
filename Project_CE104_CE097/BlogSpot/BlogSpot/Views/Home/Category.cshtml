@@ -1,0 +1,33 @@
+﻿@{ ViewData["Title"] = "Category"; }
+
+@model IEnumerable<Blog>
+
+<div class="text-center">
+     
+    <h3 class="h3 mb-4" style="color:#040434;text-shadow:1px 1px 2px #070a28">Blogs of Category: @ViewBag.c </h3>
+    <hr class="mt-4 mb-5" style="border-top-style: solid ;">
+  
+     @foreach (var blog in Model)
+        {
+      
+<div class="card mb-3 offset-md-2 col-md-8 justify-content-center box-shadow" style=" box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+    <div class="row no-gutters imgdiv">
+        <div class="col-md-5 mt-2 mb-2 box-shadow imgdiv">
+            @if (!String.IsNullOrEmpty(blog.Image))
+            {
+                var image_path = $"/Image/{blog.Image}";
+
+<img src="@image_path" class="photo col-md-4" style="max-width: 297px; max-height:172px;min-width: 297px; min-height:172px;" />}
+        </div>
+        <div class="col-md-7 mt-2 mb-2 justify-content-center data">
+            <div class="card-body">
+                <h3 class="card-title text-center"> @blog.Title </h3>
+                <p class="card-text text-center"><small class="text-muted">Published on @blog.Created</small></p>
+                <h5><a asp-controller="Home" asp-action="ViewBlog" asp-route-id="@blog.Blog_ID">Read More</a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+}
+   
+</div>

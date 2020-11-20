@@ -1,0 +1,35 @@
+﻿
+
+@{
+    ViewData["Title"] = "Admin Panel";
+}
+@model IEnumerable<Blog>
+<div class="text-center">
+    <br />
+
+    <h2 class="h2 mb-4" style="color:#040434;text-shadow:1px 1px 2px #070a28">All The blogs</h2>
+    <hr class="mt-2 mb-5" style="border-top-style: solid;">
+    @if (TempData["Success"] != null)
+    {
+        <p class="alert alert-success" id="successMessage">@TempData["Success"]</p>
+    }
+    <br />
+
+
+    <table class="table table-striped table-responsive-sm btn-table">
+
+        <tbody id="myTable">
+            @foreach (var blog in Model)
+            {
+            <tr>
+                <td>
+                   <h5> @blog.Title</h5>
+                </td>
+                <td>
+                    <a  class="btn btn-primary" asp-controller="Panel" asp-action="ViewBlog" asp-route-id="@blog.Blog_ID">View this Blog</a>
+                </td>
+            </tr>
+            }
+            </tbody>
+    </table>
+</div>

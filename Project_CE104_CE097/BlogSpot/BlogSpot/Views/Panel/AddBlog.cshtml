@@ -1,0 +1,56 @@
+﻿@model BlogSpot.ViewModels.BlogViewModel
+
+@{
+    ViewData["Title"] = "AddBlog";
+}
+
+<br />
+<br />
+<h2 class="h2 mb-4" style="color:#040434;text-shadow:1px 1px 2px #070a28">Add Details below here!</h2>
+<hr />
+<div class="row">
+   
+    <div class="col-md-7">
+        <p style="color:red;">
+            @ViewBag.Message
+        </p>
+        <form asp-action="AddBlog" asp-controller="Panel" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title" class="control-label">Title of Blog</label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="body" class="control-label">Content Of blog</label>
+                <textarea asp-for="body" class="form-control" rows="5"></textarea>
+                <span asp-validation-for="body" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Category" class="control-label">Category of Blog</label>
+                <select asp-for="Category">
+                    <option>Food</option>
+                    <option>Travel</option>
+                    <option>Fashion</option>
+                    <option>Science</option>
+                    <option>Music</option>
+                </select>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label">Image</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add Blog" class="btn btn-primary btn-block my-4" />
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
